@@ -1,0 +1,352 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* header here */
+.header {
+    width: 22rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+}
+.header__logo {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.header__menu {
+    flex: 1;
+}
+.header__menu ul {
+    list-style: none;
+}
+.header__menu ul a{
+    color: #7c7bad;
+    font-weight: bold;
+    display: block;
+    font-size: 1.3rem;
+    text-decoration: none;
+    padding: .4rem 0 .4rem 1.2rem;
+
+}
+.header__menu .submenu a {
+    color: #000;
+    font-weight: 400;
+    padding-left: 2.6rem;
+}
+/* .menu > li:hover > a, */
+.submenu li:hover a {
+    color: #ddd;
+    background-color: #7c7bad;
+}
+.header__footer {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+
+.header__footer--bold {
+    color: #875a7b;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* main here */
+.main {
+    margin-left: 22rem;
+    background-color: #f9f9f9;
+}
+
+.main__control {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    height: 8.6rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 22rem;
+    padding: 1rem 1.6rem;
+    background-color: #f9f9f9;
+}
+.control-create button {
+    border: none;
+    padding: .8rem;
+    background-color: #7c7bad;
+    color: #fff;
+    width: 20rem;
+}
+.control-create button:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+.control-create, .control-search{
+    flex-basis: 50%;
+}
+.form__create {
+    padding-top: .6rem;
+    display: flex;
+    align-items: center;
+}
+.form__create input, .form__create select{
+    width: 18%;
+    padding: .5rem 0;
+}
+.form__create--error {
+    color: red;
+}
+.control__title {
+    font-size: 1.8rem;
+    color: #777;
+}
+.control__search input {
+    width: 100%;
+    padding: .2rem;
+}
+.form_search {
+    position: relative;
+}
+.control__search button{
+    position: absolute;
+    border: none;
+    right: 1rem;
+    top: 0.2rem;
+    padding: 0.4rem;
+    background-color: transparent;
+}
+.control-select {
+    display: flex;
+    padding-top: 0.6rem;
+    justify-content: space-between;
+    /* align-items: center; */
+    font-size: 1.3rem;
+}
+.btn__filter {
+    padding: .3rem;
+}
+.filter__content, .search__content {
+    display: none;
+    min-width: 16rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: .4rem;
+    z-index: 3;
+    cursor: pointer;
+    position: absolute; /* cho nó sáo trộn phần tử 1 tí :v */
+}
+.filter__option {
+    padding: 1.2rem;
+    font-size: 1.3rem;
+}
+.btn__filter:hover {
+    cursor: pointer;
+}
+/* .control-select__filter:hover .filter__content, .control__search:hover .search__content {
+    display: block;
+    cursor: pointer;
+} */
+.control-select__filter:hover .filter__content {
+    display: block;
+}
+.filter__option:hover {
+    background-color: #7c7bad;
+}
+
+.page-number {
+    display: flex;
+    align-items: center;
+}
+.btn-control {
+    display: flex;
+    margin-left: 1rem
+}
+.btn-control button{
+    border: 1px solid #aaa;
+    padding: .3rem .8rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.4rem;
+    cursor: pointer;
+    /* float: left; */
+}
+.btn-control button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+  
+.btn-control button:hover {
+    background-color: #bbb;
+}
+
+.main__content {
+    margin-top: 8.6rem;
+    height: 100vh;
+}
+.content-employee__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .6rem;
+}
+.content-employee__item {
+    /* display: flex;
+    align-items: center; */
+    width: 20%;
+    /* flex-basis: 20%; */
+}
+.employ-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: 0.4rem;
+    padding: .4rem;
+    height: 8rem;
+}
+.employee-img {
+    width: 6.4rem;
+    text-align: center;
+}
+.employee-img img {
+    vertical-align: middle;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 5rem;
+}
+.employee-img_default {
+    font-size: 3rem;
+    height: 5rem;
+    line-height: 5rem;
+    width: 5rem;
+    display: inline-block;
+    background-color: pink;
+}
+.employee-info {
+    margin-left: .4rem;
+    width: 90%;
+}
+.employee-info__job {
+    padding-left: 1.2rem;
+}
+.employee-follow__btn {
+    border: none;
+    padding: .5rem 1rem;
+    background-color: #7c7bad;
+    color: #fff;
+    float: right;
+}
+
+
+/* form add employee */
+.form__add {
+    padding-top: .6rem;
+    /* display: flex;
+    align-items: center; */
+}
+.form__add input, .form__add select{
+    width: 100%;
+    padding: .5rem 0;
+}
+.form__add--error{
+    color: red;
+}
+/* modal add here */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    /* display: flex; */
+    justify-content: center;
+    align-items: baseline;
+    display: none;
+}
+
+
+.modal-open {
+    display: flex;
+}
+.modal-add-container {
+    margin-top: 8.6rem;
+    background-color: #fff;
+    padding: 3.2rem;
+    position: relative;
+    width: 90rem;
+    max-width: calc(100% - 3.2rem);
+    animation: modalFadeIn linear .4s;
+
+}
+@keyframes modalFadeIn{
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.modal-add-container h3 {
+    font-size: 2.6rem;
+    letter-spacing: .4rem;
+    font-weight: 400;
+}
+.modal-add-container p {
+    font-size: 1.5rem;
+}
+.modal-add-container i {
+    font-size: 2.4rem;
+}
+.modal-add-container input, .modal-add-container select, 
+.modal-add-container button {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    margin-top: 2.4rem;
+}
+.modal-add-container button {
+    border: none;
+    background-color: #7c7bad;
+    color: #fff;
+}
+.modal-add-close {
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    padding: 2rem;
+    background-color: #ddd;
+}
+.modal-add-close i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-add-container button:hover,
+.modal-add-close:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.main__search--error {
+    text-align: center;
+    padding-top: 1.2rem;
+    font-size: 1.5rem;
+}

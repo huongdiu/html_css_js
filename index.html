@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo</title>
+    <!-- HTML Favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/images.png">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- header here -->
+    <div class="header">
+        <div class="header__logo">
+            <a href="#"><img src="./img/company_logo.png" alt=""></a>
+        </div>
+        <div class="header__menu">
+            <ul class="menu">
+                <li><a href="#">Employees</a>
+                    <ul class="submenu">
+                        <li><a href="#">Employees</a></li>
+                        <li><a href="#">Adjust Employees</a></li>
+                        <li><a href="#">Members Birthday</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Departments</a></li>
+                <li><a href="#">Termination Request</a></li>
+            </ul>
+        </div>
+        <div class="header__footer">
+            <p>Powered by <a href="#" class="header__footer--bold">Odoo</a></p>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="main__control">
+            <div class="control-create">
+                <p class="control__title">Employees</p>
+                <!-- <form action="" class="form__create">
+                    <input type="text" class="input_name" placeholder="Tên nhân viên">
+                    <input type="text" class="input_id" placeholder="Trị số" disabled>
+                    <input type="text" class="input_email" placeholder="Email" disabled>
+                    <select name="" id="" class="input_job">
+                        <option value="Developer">Developer</option>
+                        <option value="BA">BA</option>
+                        <option value="BPO">BPO</option>
+                        <option value="IT">IT</option>
+                        <option value="Tester">Tester</option>
+                        <option value="Engineer">Engineer</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Intern">Intern</option>
+                        <option value="Product Manager">Product Manager</option>
+                        <option value="PM">PM</option>
+                        <option value="Comtor">Comtor</option>
+                    </select>
+                    <button type="submit">Thêm nhân viên</button>
+                </form>
+                <p class="form__create--error"></p> -->
+                <button class="addEmployee-btn">ADD EMPLOYEE</button>
+            </div>
+            <div class="control-search">
+                <div class="control__search">
+                    <form action="#" class="form_search">
+                        <input type="text" id="keywordSearch" name="keyword" placeholder="Search...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search__content" id="hihi">
+                        <p class="filter__option searchByName">Tìm kiếm theo Tên</p>
+                        <p class="filter__option searchByJob">Tìm kiếm theo Công việc</p>
+                    </div>
+                </div>
+                <div class="control-select">
+                    <div class="control-select__filter">
+                        <button class="btn__filter" id="hu"><i class="fas fa-bars"></i> <span class="btn__sort">Filter</span> <i class="fas fa-caret-down"></i></button>
+                        <div class="filter__content">
+                            <p class="filter__option filter__AtoZ" onclick="sortByName(1, this)">Tên A - Z</p>
+                            <p class="filter__option filter__ZtoA" onclick="sortByName(-1, this)">Tên Z - A</p>
+                        </div>     
+                    </div>
+                    <div class="control-select__pages">
+                        <div class="page-number">
+                            <span id="page">
+                        <select name="" id="" class="select_perpage">
+                            <option style="display: none">Select perpage</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="40">40</option>
+                        </select>
+                                <span class="page-number__value"></span>
+                                /<span class="page-number__limit">\</span>
+                            </span>
+                            <span class="btn-control">
+                                <button class="btn-page__prev" onclick="navigatePage('prev')"><i class="fas fa-angle-left"></i></button>
+                                <button class="btn-page__next" onclick="navigatePage('next')"><i class="fas fa-angle-right"></i></button>
+                            </span>
+                            <span class="btn-control btn-tablist">
+                                <button><i class="fas fa-th-large"></i></button>
+                                <button><i class="fas fa-list"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main__content">
+            <div class="content-employee__list">
+            </div>
+            <p class="main__search--error"></p>
+        </div>
+    </div>
+
+    <!-- modal add employee here -->
+    <div class="modal">
+        <div class="modal-add-container">
+            <div class="modal-add-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3>ADD EMPLOYEE</h3>
+            <form action="" class="form__add">
+                <input type="text" class="input_name" placeholder="Tên nhân viên">
+                <p class="form__add--error"></p>
+                <input type="text" class="input_id" placeholder="Trị số" disabled>
+                <input type="text" class="input_email" placeholder="Email" disabled>
+                <select name="" id="" class="input_job">
+                    <option value="Developer">Developer</option>
+                    <option value="BA">BA</option>
+                    <option value="BPO">BPO</option>
+                    <option value="IT">IT</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Accountant">Accountant</option>
+                    <option value="Intern">Intern</option>
+                    <option value="Product Manager">Product Manager</option>
+                    <option value="PM">PM</option>
+                    <option value="Comtor">Comtor</option>
+                </select>
+                <button type="submit">Add new employee</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./MOCK_DATA.js"></script>
+    <script src="./test.js"></script>
+</body>
+</html>
